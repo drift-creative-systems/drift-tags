@@ -1,0 +1,70 @@
+/*
+ * Drift: Tags settings screen.
+ * Accent: indigo #6366f1 for the mark; #4f46e5 for text and focus (AA on white).
+ */
+
+.drift-tags {
+	--drift-tags-accent: #6366f1;
+	--drift-tags-accent-strong: #4f46e5;
+	--drift-tags-border: #dcdcde;
+	max-width: 960px;
+}
+
+.drift-tags__title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.drift-tags__mark {
+	display: inline-flex;
+	color: var(--drift-tags-accent);
+}
+
+.drift-tags__card {
+	margin-top: 16px;
+	padding: 4px 20px 12px;
+	background: #fff;
+	border: 1px solid var(--drift-tags-border);
+	border-radius: 8px;
+}
+
+.drift-tags__intro {
+	margin: 16px 0 0;
+	padding-left: 12px;
+	border-left: 3px solid var(--drift-tags-accent);
+}
+
+.drift-tags .form-table th {
+	width: 120px;
+}
+
+.drift-tags .CodeMirror {
+	height: auto;
+	min-height: 120px;
+	border: 1px solid var(--drift-tags-border);
+	border-radius: 4px;
+}
+
+.drift-tags .CodeMirror-focused,
+.drift-tags textarea.code:focus {
+	border-color: var(--drift-tags-accent-strong);
+	box-shadow: 0 0 0 1px var(--drift-tags-accent-strong);
+}
+
+.drift-tags .button-primary {
+	background: var(--drift-tags-accent-strong);
+	border-color: var(--drift-tags-accent-strong);
+}
+
+.drift-tags .button-primary:hover,
+.drift-tags .button-primary:focus {
+	background: #4338ca;
+	border-color: #4338ca;
+}
+
+@media (max-width: 782px) {
+	.drift-tags__card {
+		padding: 4px 12px 12px;
+	}
+}
