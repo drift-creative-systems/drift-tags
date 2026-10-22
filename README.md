@@ -1,3 +1,5 @@
+![Drift Creative Systems](.github/banner.jpg)
+
 # Drift: Tags
 
 Free WordPress plugin by **Drift Creative Systems**. Add tracking and verification code (Google Analytics, Google Tag Manager, Meta Pixel, site verification tags) to the head, the start of the body and the footer of every page, without editing theme files.
