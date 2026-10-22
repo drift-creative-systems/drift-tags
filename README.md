@@ -4,7 +4,7 @@
 
 Free WordPress plugin by **Drift Creative Systems**. Add tracking and verification code (Google Analytics, Google Tag Manager, Meta Pixel, site verification tags) to the head, the start of the body and the footer of every page, without editing theme files.
 
-- WordPress.org slug: `drift-creative-tags` (submission pending)
+- WordPress.org slug: `drift-tags` (submission pending)
 - Licence: GPL-2.0-or-later
 - Requires WordPress 6.0+, PHP 7.4+
 
@@ -40,7 +40,7 @@ These are the extension points for a paid add-on, sold outside WordPress.org. No
 - Run **Plugin Check** before every release. The PHPCS-based checks don't work in WordPress Playground (its filesystem can't `flock()`), so use a real install, e.g. WP-CLI with the SQLite drop-in:
   ```sh
   wp plugin install plugin-check --activate
-  wp plugin check drift-creative-tags --include-low-severity-errors --include-low-severity-warnings \
+  wp plugin check drift-tags --include-low-severity-errors --include-low-severity-warnings \
     --require=./wp-content/plugins/plugin-check/cli.php
   ```
   Check a copy built from `.distignore`, not the repo, so dev files don't trip the `file_type` check.
@@ -50,7 +50,7 @@ These are the extension points for a paid add-on, sold outside WordPress.org. No
 
 1. Bump the version in **three** places: the `Version:` header, `DRIFT_TAGS_VERSION` and `Stable tag:` in `readme.txt`. Add a changelog entry to both `readme.txt` and `CHANGELOG.md`.
 2. Merge `develop` → `main`, then publish a GitHub release tagged `vX.Y.Z`.
-3. `.github/workflows/release.yml` checks the three versions match, builds `drift-creative-tags.zip` from `.distignore` and attaches it to the release.
+3. `.github/workflows/release.yml` checks the three versions match, builds `drift-tags.zip` from `.distignore` and attaches it to the release.
 4. Once approved on WordPress.org, set the repo variable `WPORG_DEPLOY=true` and the secrets `SVN_USERNAME` / `SVN_PASSWORD`. Releases then deploy to SVN automatically, and readme/asset changes on `main` sync on their own (`wporg-assets.yml`).
 
 WordPress.org assets (icon, banners, screenshots) live in `.wordpress-org/`.

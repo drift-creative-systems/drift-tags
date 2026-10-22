@@ -10,7 +10,7 @@
  * Author URI:        https://driftcreativesystems.co.uk/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       drift-creative-tags
+ * Text Domain:       drift-tags
  *
  * @package Drift_Tags
  */
@@ -28,7 +28,7 @@ if ( defined( 'DRIFT_TAGS_VERSION' ) ) {
 	add_action(
 		'admin_notices',
 		function () {
-			echo '<div class="notice notice-error"><p>' . esc_html__( 'Drift: Tags is installed more than once. Please delete the duplicate plugin folder.', 'drift-creative-tags' ) . '</p></div>';
+			echo '<div class="notice notice-error"><p>' . esc_html__( 'Drift: Tags is installed more than once. Please delete the duplicate plugin folder.', 'drift-tags' ) . '</p></div>';
 		}
 	);
 	return;
@@ -39,7 +39,7 @@ define( 'DRIFT_TAGS_FILE', __FILE__ );
 define( 'DRIFT_TAGS_URL', plugin_dir_url( __FILE__ ) );
 define( 'DRIFT_TAGS_OPTION', 'drift_tags_code' );
 define( 'DRIFT_TAGS_OPTION_GROUP', 'drift_tags_settings' );
-define( 'DRIFT_TAGS_PAGE_SLUG', 'drift-creative-tags' );
+define( 'DRIFT_TAGS_PAGE_SLUG', 'drift-tags' );
 
 /**
  * NOTE ON ESCAPING (read before "fixing" this):
@@ -72,22 +72,22 @@ define( 'DRIFT_TAGS_PAGE_SLUG', 'drift-creative-tags' );
 function drift_tags_locations() {
 	$locations = array(
 		'head'   => array(
-			'label'       => __( 'Head', 'drift-creative-tags' ),
-			'description' => __( 'Printed as early as possible inside <head> on every front-end page. Use for the Google Analytics or Google Tag Manager <script> snippet and site verification <meta> tags.', 'drift-creative-tags' ),
+			'label'       => __( 'Head', 'drift-tags' ),
+			'description' => __( 'Printed as early as possible inside <head> on every front-end page. Use for the Google Analytics or Google Tag Manager <script> snippet and site verification <meta> tags.', 'drift-tags' ),
 			'hook'        => 'wp_head',
 			'priority'    => 1,
 			'rows'        => 10,
 		),
 		'body'   => array(
-			'label'       => __( 'Body', 'drift-creative-tags' ),
-			'description' => __( 'Printed straight after the opening <body> tag. Use for the Google Tag Manager <noscript> snippet. Your theme must call wp_body_open(), as all default themes do.', 'drift-creative-tags' ),
+			'label'       => __( 'Body', 'drift-tags' ),
+			'description' => __( 'Printed straight after the opening <body> tag. Use for the Google Tag Manager <noscript> snippet. Your theme must call wp_body_open(), as all default themes do.', 'drift-tags' ),
 			'hook'        => 'wp_body_open',
 			'priority'    => 1,
 			'rows'        => 6,
 		),
 		'footer' => array(
-			'label'       => __( 'Footer', 'drift-creative-tags' ),
-			'description' => __( 'Printed just before the closing </body> tag, after the scripts WordPress loads. Use for chat widgets and scripts that should not hold up the page.', 'drift-creative-tags' ),
+			'label'       => __( 'Footer', 'drift-tags' ),
+			'description' => __( 'Printed just before the closing </body> tag, after the scripts WordPress loads. Use for chat widgets and scripts that should not hold up the page.', 'drift-tags' ),
 			'hook'        => 'wp_footer',
 			'priority'    => 100,
 			'rows'        => 6,
@@ -196,7 +196,7 @@ function drift_tags_sanitize_code( $input ) {
 	$saved = drift_tags_get_code();
 
 	if ( ! drift_tags_user_can_edit() ) {
-		add_settings_error( DRIFT_TAGS_OPTION, 'drift_tags_no_permission', __( 'You need permission to add unfiltered HTML to change this code. Nothing was saved.', 'drift-creative-tags' ) );
+		add_settings_error( DRIFT_TAGS_OPTION, 'drift_tags_no_permission', __( 'You need permission to add unfiltered HTML to change this code. Nothing was saved.', 'drift-tags' ) );
 		return $saved;
 	}
 
@@ -224,8 +224,8 @@ add_action( 'admin_menu', 'drift_tags_add_menu' );
  */
 function drift_tags_add_menu() {
 	add_options_page(
-		__( 'Drift: Tags', 'drift-creative-tags' ),
-		__( 'Drift: Tags', 'drift-creative-tags' ),
+		__( 'Drift: Tags', 'drift-tags' ),
+		__( 'Drift: Tags', 'drift-tags' ),
 		drift_tags_capability(),
 		DRIFT_TAGS_PAGE_SLUG,
 		'drift_tags_render_settings_page'
@@ -240,7 +240,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'drift_tags_ad
  * @return array
  */
 function drift_tags_add_settings_link( $links ) {
-	$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=' . DRIFT_TAGS_PAGE_SLUG ) ) . '">' . esc_html__( 'Settings', 'drift-creative-tags' ) . '</a>';
+	$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=' . DRIFT_TAGS_PAGE_SLUG ) ) . '">' . esc_html__( 'Settings', 'drift-tags' ) . '</a>';
 	array_unshift( $links, $settings_link );
 	return $links;
 }
@@ -341,7 +341,7 @@ function drift_tags_render_settings_page() {
 
 		<?php if ( ! drift_tags_user_can_edit() ) : ?>
 			<div class="notice notice-warning inline">
-				<p><?php esc_html_e( 'You can view this code but not change it. Saving needs the unfiltered_html capability, which on multisite only network admins have.', 'drift-creative-tags' ); ?></p>
+				<p><?php esc_html_e( 'You can view this code but not change it. Saving needs the unfiltered_html capability, which on multisite only network admins have.', 'drift-tags' ); ?></p>
 			</div>
 		<?php endif; ?>
 
@@ -349,7 +349,7 @@ function drift_tags_render_settings_page() {
 			<?php settings_fields( DRIFT_TAGS_OPTION_GROUP ); ?>
 
 			<div class="drift-tags__card">
-				<p class="drift-tags__intro"><?php esc_html_e( 'Only add code from sources you trust. It runs, unescaped, on every front-end page. If it loads a third-party service, make sure your privacy policy and cookie consent cover it.', 'drift-creative-tags' ); ?></p>
+				<p class="drift-tags__intro"><?php esc_html_e( 'Only add code from sources you trust. It runs, unescaped, on every front-end page. If it loads a third-party service, make sure your privacy policy and cookie consent cover it.', 'drift-tags' ); ?></p>
 				<?php do_settings_sections( DRIFT_TAGS_PAGE_SLUG ); ?>
 			</div>
 

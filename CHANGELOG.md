@@ -14,7 +14,7 @@ First release as **Drift: Tags**, a free WordPress.org plugin by Drift Creative 
 - `readme.txt`, `LICENSE` (GPLv2), `uninstall.php` (multisite aware), WordPress.org icon and banners, release workflow with optional SVN deploy.
 
 ### Changed
-- Renamed to Drift: Tags: slug and text domain `drift-creative-tags`, prefix `drift_tags_` / `DRIFT_TAGS_`.
+- Renamed to Drift: Tags: slug and text domain `drift-tags`, prefix `drift_tags_` / `DRIFT_TAGS_`.
 - Settings moved to Settings → Drift: Tags, with the Drift monogram in indigo (`#6366f1`).
 - Code is stored in one array option, `drift_tags_code`, instead of one option per field.
 - Minimum PHP lowered to 7.4.

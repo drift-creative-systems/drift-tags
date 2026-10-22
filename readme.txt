@@ -42,7 +42,7 @@ The code you add usually loads a third-party service, such as Google Analytics o
 * `drift_tags_output` (filter): change the code printed at a location, or return an empty string to skip it, e.g. on certain pages.
 * `drift_tags_settings_after_fields` (action): add fields to the settings form.
 
-Source code, issues and pull requests: [github.com/drift-creative-systems/drift-creative-tags](https://github.com/drift-creative-systems/drift-creative-tags).
+Source code, issues and pull requests: [github.com/drift-creative-systems/drift-tags](https://github.com/drift-creative-systems/drift-tags).
 
 == Installation ==
 

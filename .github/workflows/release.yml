@@ -1,5 +1,5 @@
 # On each published GitHub release: checks the version numbers agree, builds
-# drift-creative-tags.zip from .distignore and attaches it to the release.
+# drift-tags.zip from .distignore and attaches it to the release.
 # Once the plugin is approved on WordPress.org, set the repo variable
 # WPORG_DEPLOY to "true" and add the SVN_USERNAME / SVN_PASSWORD secrets, and
 # the same release is also deployed to the plugin directory.
@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 env:
-  SLUG: drift-creative-tags
+  SLUG: drift-tags
 
 jobs:
   zip:
