@@ -3,7 +3,7 @@
  * Plugin Name:       Drift: Tags
  * Plugin URI:        https://driftcreativesystems.co.uk/
  * Description:       Add tracking and verification code (Google Analytics, Google Tag Manager, Meta Pixel, site verification tags and so on) to the head, the start of the body and the footer of every page, without editing theme files.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Drift Creative Systems
@@ -11,6 +11,8 @@
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       drift-tags
+ *
+ * Copyright © 2026 Drift Creative Systems Ltd
  *
  * @package Drift_Tags
  */
@@ -34,7 +36,7 @@ if ( defined( 'DRIFT_TAGS_VERSION' ) ) {
 	return;
 }
 
-define( 'DRIFT_TAGS_VERSION', '1.0.0' );
+define( 'DRIFT_TAGS_VERSION', '1.0.1' );
 define( 'DRIFT_TAGS_FILE', __FILE__ );
 define( 'DRIFT_TAGS_URL', plugin_dir_url( __FILE__ ) );
 define( 'DRIFT_TAGS_OPTION', 'drift_tags_code' );
@@ -243,6 +245,21 @@ function drift_tags_add_settings_link( $links ) {
 	$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=' . DRIFT_TAGS_PAGE_SLUG ) ) . '">' . esc_html__( 'Settings', 'drift-tags' ) . '</a>';
 	array_unshift( $links, $settings_link );
 	return $links;
+}
+
+add_filter( 'admin_footer_text', 'drift_tags_admin_footer_text' );
+/**
+ * Shows the copyright and company details in the admin footer, on this plugin's settings screen only.
+ *
+ * @param string $text Footer text.
+ * @return string
+ */
+function drift_tags_admin_footer_text( $text ) {
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( ! $screen || 'settings_page_' . DRIFT_TAGS_PAGE_SLUG !== $screen->id ) {
+		return $text;
+	}
+	return 'Copyright &copy; ' . esc_html( wp_date( 'Y' ) ) . ' Drift Creative Systems Ltd &middot; Registered in England and Wales, company number 17548220. Registered office: 167-169 Great Portland Street, 5th Floor, London W1W 5PF';
 }
 
 add_action( 'admin_enqueue_scripts', 'drift_tags_admin_assets' );

@@ -4,7 +4,7 @@ Tags: header code, footer code, google tag manager, google analytics, tracking c
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,12 @@ The code you add usually loads a third-party service, such as Google Analytics o
 * `drift_tags_settings_after_fields` (action): add fields to the settings form.
 
 Source code, issues and pull requests: [github.com/drift-creative-systems/drift-tags](https://github.com/drift-creative-systems/drift-tags).
+
+= Copyright =
+
+Copyright © 2026 Drift Creative Systems Ltd
+
+Drift Creative Systems Ltd. Registered in England and Wales, company number 17548220. Registered office: 167-169 Great Portland Street, 5th Floor, London W1W 5PF
 
 == Installation ==
 
@@ -83,10 +89,16 @@ Yes. After changing the code, clear your page cache so visitors get the new vers
 
 == Changelog ==
 
+= 1.0.1 =
+* Copyright and company details on the settings screen footer and in the readme.
+
 = 1.0.0 =
 * First public release: Head, Body and Footer code with the WordPress code editor.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Adds copyright and company details. No changes to how the plugin works.
 
 = 1.0.0 =
 First public release.
