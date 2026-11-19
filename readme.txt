@@ -4,7 +4,7 @@ Tags: header code, footer code, google tag manager, google analytics, tracking c
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,9 @@ Yes. After changing the code, clear your page cache so visitors get the new vers
 
 == Changelog ==
 
+= 1.0.2 =
+* Plugin URI now points to the Drift: Tags product page.
+
 = 1.0.1 =
 * Copyright and company details on the settings screen footer and in the readme.
 
@@ -96,6 +99,9 @@ Yes. After changing the code, clear your page cache so visitors get the new vers
 * First public release: Head, Body and Footer code with the WordPress code editor.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Updates the plugin's web address. No changes to how the plugin works.
 
 = 1.0.1 =
 Adds copyright and company details. No changes to how the plugin works.
