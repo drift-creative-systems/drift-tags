@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       Drift: Tags
- * Plugin URI:        https://driftcreativesystems.co.uk/
+ * Plugin URI:        https://driftcreativesystems.co.uk/apps/tags/
  * Description:       Add tracking and verification code (Google Analytics, Google Tag Manager, Meta Pixel, site verification tags and so on) to the head, the start of the body and the footer of every page, without editing theme files.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Drift Creative Systems
@@ -36,7 +36,7 @@ if ( defined( 'DRIFT_TAGS_VERSION' ) ) {
 	return;
 }
 
-define( 'DRIFT_TAGS_VERSION', '1.0.1' );
+define( 'DRIFT_TAGS_VERSION', '1.0.2' );
 define( 'DRIFT_TAGS_FILE', __FILE__ );
 define( 'DRIFT_TAGS_URL', plugin_dir_url( __FILE__ ) );
 define( 'DRIFT_TAGS_OPTION', 'drift_tags_code' );
